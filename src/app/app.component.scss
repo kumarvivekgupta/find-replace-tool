@@ -80,15 +80,11 @@ input {
     flex-direction: column;
     gap: 10px;
     height: 0;
-    /* Initially hidden */
     overflow: hidden;
-    /* Hide content */
     transition: height 0.5s ease-in-out;
-    /* Smooth transition for height */
 }
 
 .expandable-wrapper.expanded {
     height: auto;
     max-height: 500px;
-    /* Set expanded height */
 }

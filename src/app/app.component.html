@@ -8,7 +8,7 @@
       placeholder="Type or paste your text here"></textarea>
   </div>
 
-  <!-- Text Field to enter text to be found -->
+
 
   <div class="text-replace">
     <div class="form-group">
@@ -16,7 +16,7 @@
       <input type="text" id="findText" class="form-control" [(ngModel)]="findText" placeholder="Enter the text to find">
     </div>
 
-    <!-- Text Field to enter text for replacement -->
+
     <div class="form-group">
       <label for="replaceText">Replace All:</label>
       <input type="text" id="replaceText" class="form-control" [(ngModel)]="replaceText"
@@ -29,33 +29,20 @@
   <button [disabled]="!originalText.trim()" class="btn btn-primary mt-3"
     (click)="replaceTextFunction()">Replace</button>
 
-  <!-- Display the original text with highlighted matches -->
-
   <div class="expandable-wrapper" [ngClass]="{ 'expanded': isExpanded }">
 
     <div class="form-group mt-4 text-show">
       <label for="highlightedOriginalText">Original Text (Highlighted):</label>
       <div class="highlighted-text" [innerHTML]="highlightedOriginalText"></div>
     </div>
-  
-  
-  
-    <!-- Display the result after replacement with highlighted replaced text -->
+
+
     <div class="form-group mt-4 text-show">
       <label for="highlightedResultText">Result Text:</label>
       <div class="highlighted-text" [innerHTML]="highlightedResultText"></div>
     </div>
 
   </div>
- 
 
 
-
-  
 </div>
-
-
-
-
-
-

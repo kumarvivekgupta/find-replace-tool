@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Renderer2, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 
@@ -12,10 +12,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'find-replace-tool';
-  originalText: string = ''; // Text that the user inputs
-  findText: string = ''; // The text the user wants to find
-  replaceText: string = ''; // The text to replace the found text
-  resultText: string = ''; // The resulting text after replacement
+  originalText: string = '';
+  findText: string = '';
+  replaceText: string = '';
+  resultText: string = '';
 
   highlightedOriginalText: string = ''; // The original text with highlighted found text
   highlightedResultText: string = ''; // The result text with replaced and highlighted text
@@ -23,18 +23,15 @@ export class AppComponent {
   isExpanded: boolean = false;
 
 
-  constructor(private renderer: Renderer2, private el: ElementRef, private readonly viewContainerRef: ViewContainerRef) { }
+  constructor() { }
 
 
   replaceTextFunction() {
     if (this.findText) {
       // Create a RegEx for finding the text to be replaced
-      const regex = new RegExp(this.findText, 'gi'); // Case-insensitive, global
+      const regex = new RegExp(this.findText, 'gi');
 
-      // Highlight the original text by wrapping the found text with a span
       this.highlightedOriginalText = this.highlightText(this.originalText, regex);
-
-      // Replace and highlight the result text
       this.highlightedResultText = this.replaceAndHighlight(this.originalText, regex);
       this.isExpanded = this.isExpanded === false ? true : true;
     } else {
