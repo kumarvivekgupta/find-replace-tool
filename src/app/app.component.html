@@ -1,0 +1,61 @@
+<div class="container">
+  <h1>Find and Replace Tool</h1>
+
+  <!-- Text Area for the original text -->
+  <div class="form-group">
+    <label for="originalText">Enter Text:</label>
+    <textarea id="originalText" class="form-control" rows="6" [(ngModel)]="originalText"
+      placeholder="Type or paste your text here"></textarea>
+  </div>
+
+  <!-- Text Field to enter text to be found -->
+
+  <div class="text-replace">
+    <div class="form-group">
+      <label for="findText">Find All:</label>
+      <input type="text" id="findText" class="form-control" [(ngModel)]="findText" placeholder="Enter the text to find">
+    </div>
+
+    <!-- Text Field to enter text for replacement -->
+    <div class="form-group">
+      <label for="replaceText">Replace All:</label>
+      <input type="text" id="replaceText" class="form-control" [(ngModel)]="replaceText"
+        placeholder="Enter the replacement text">
+    </div>
+  </div>
+
+
+  <!-- Button to trigger the replacement -->
+  <button [disabled]="!originalText.trim()" class="btn btn-primary mt-3"
+    (click)="replaceTextFunction()">Replace</button>
+
+  <!-- Display the original text with highlighted matches -->
+
+  <div class="expandable-wrapper" [ngClass]="{ 'expanded': isExpanded }">
+
+    <div class="form-group mt-4 text-show">
+      <label for="highlightedOriginalText">Original Text (Highlighted):</label>
+      <div class="highlighted-text" [innerHTML]="highlightedOriginalText"></div>
+    </div>
+  
+  
+  
+    <!-- Display the result after replacement with highlighted replaced text -->
+    <div class="form-group mt-4 text-show">
+      <label for="highlightedResultText">Result Text:</label>
+      <div class="highlighted-text" [innerHTML]="highlightedResultText"></div>
+    </div>
+
+  </div>
+ 
+
+
+
+  
+</div>
+
+
+
+
+
+
